@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+ <?php
+
+      require 'connectdb.php';
+
+      if (isset(($_POST["email"])) && isset(($_POST["mdp"])) && isset(($_POST["tel"])) && isset(($_POST["adresse"])) && isset(($_POST["codepostal"])) && isset(($_POST["ville"])))
+      {
+        $email = $_POST["email"];
+        $mdp = $_POST["mdp"];
+        $tel = $_POST["tel"];
+        $adresse = $_POST["adresse"];
+        $codepostal = $_POST["codepostal"];
+        $ville = $_POST["ville"];
+        echo("Inscription avec succès");
+        $sql = "INSERT INTO Info VALUES ('','$email','$mdp','$tel','$adresse','$ville','$codepostal')";
+        $bdd->query($sql);
+      }
+      else {
+        echo("Tous les champs doivent être remplis");
+      }
+
+
+?>
+
   <head>
 
     <meta charset="utf-8">
@@ -25,11 +49,6 @@
 
 
   <body id="page-top">
-
-    <?php
-
-      require 'connectdb.php';
-?>
 
     <!-- Navigation -->
     <a class="menu-toggle rounded" href="#">
@@ -62,31 +81,31 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-5 mx-auto">
-            <h2>Inscription</h2><br><span style="color: gray"><form>
+            <h2>Inscription</h2><br><span style="color: gray"><form method="POST" action= "inscription.php">
   <div class="form-group">
     <label for="InputEmail1"><h4>Email</h4></label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted"><h6>We'll never share your email with anyone else.</h6></small>
   </div>
  <br><div class="form-group">
     <label for="InputPassword1"><h4>Mot de passe</h4></label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+    <input type="password" class="form-control" name="mdp" placeholder="Enter Password">
   </div>
   <br><div class="form-group">
     <label for="InputTel"><h4>Téléphone</h4></label>
-    <input type="tel" class="form-control" id="tel" name="tel" placeholder="Enter phone number">
+    <input type="tel" class="form-control" name="tel" placeholder="Enter phone number">
   </div>
   <br><div class="form-group">
     <label for="InputAddress"><h4>Adresse</h4></label>
-    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Enter postal address">
+    <input type="text" class="form-control" name="adresse" placeholder="Enter postal address">
   </div>
     <br><div class="form-group">
     <label for="InputPostalCode"><h4>Code postal</h4></label>
-    <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Enter postal code">
+    <input type="text" class="form-control" name="codepostal" placeholder="Enter postal code">
   </div>
   <br><div class="form-group">
     <label for="InputVille"><h4>Ville</h4></label>
-    <input type="text" class="form-control" id="ville" name="ville" placeholder="Enter city">
+    <input type="text" class="form-control" name="ville" placeholder="Enter city">
   </div>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" id="terms">
@@ -141,3 +160,4 @@
   </body>
 
 </html>
+

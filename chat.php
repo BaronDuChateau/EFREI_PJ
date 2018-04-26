@@ -20,54 +20,10 @@
 
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.min.css" rel="stylesheet">
-    <link href="chat.css" rel="stylesheet">
 
   </head>
 
   <body id="page-top">
-
-          <?php
-      if(!isset($_SESSION['name'])){
-          loginForm();
-      }
-      else{
-        if(isset($_GET['logout'])){ 
-     
-    //Simple exit message
-    $fp = fopen("log.html", 'a');
-    fwrite($fp, "<div class='msgln'><i>User ". $_SESSION['name'] ." has left the chat session.</i><br></div>");
-    fclose($fp);
-     
-    session_destroy();
-    header("Location: index.php"); //Redirect the user
-}
-      ?>
-      <div id="wrapper">
-          <div id="menu">
-              <p class="welcome">Welcome, <b><?php echo $_SESSION['name']; ?></b></p>
-              <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
-              <div style="clear:both"></div>
-          </div>    
-          <div id="chatbox"></div>
-           
-          <form name="message" action="">
-              <input name="usermsg" type="text" id="usermsg" size="63" />
-              <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
-          </form>
-      </div>
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-      <script type="text/javascript">
-      // jQuery Document
-      $(document).ready(function(){
-        //If user wants to end session
-        $("#exit").click(function(){
-          var exit = confirm("Are you sure you want to end the session?");
-          if(exit==true){window.location = 'index.php?logout=true';}    
-        });
-      })
-      </script>
-      }
-      ?>
     <!-- Navigation -->
     <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
@@ -173,32 +129,14 @@
     <section class="content-section" id="portfolio">
       <div class="container">
         <div class="content-section-heading text-center">
-          <h2 class="mb-5">Parlez à Akili</h2>
+          <h3 class="text-secondary mb-0">Chat IA</h3>
+          <h2 class="mb-5">Parlez avec Akili !</h2>
         </div>
-        <div class="row no-gutters">
-          <div class="col-lg-12">
-            <div id="wrapper">
-    <div id="menu">
-        <p class="welcome">Welcome, <b></b></p>
-        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
-        <div style="clear:both"></div>
-    </div>
-     
-    <div id="chatbox"></div>
-     
-    <form name="message" action="">
-        <input name="usermsg" type="text" id="usermsg" size="63" />
-        <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
-    </form>
-</div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-<script type="text/javascript">
-// jQuery Document
-$(document).ready(function(){
- 
-});
-</script>
-          </div>
+        <center>
+       <iframe src="https://fxo.io/m/vy3j98ay" width="100%" height="100%" style="border: 3px solid #f9f9fb; width: 70%; height: 500px;"></iframe>
+     </center>
+        </div>
+      </div>
     </section>
 
       <!-- Callout -->
@@ -267,5 +205,7 @@ $(document).ready(function(){
     <script src="js/stylish-portfolio.min.js"></script>
 
   </body>
+
+
 
 </html>
