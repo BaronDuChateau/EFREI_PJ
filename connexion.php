@@ -23,13 +23,7 @@
 
   </head>
 
-
   <body id="page-top">
-
-    <?php
-
-      require 'connectdb.php';
-?>
 
     <!-- Navigation -->
     <a class="menu-toggle rounded" href="#">
@@ -62,37 +56,17 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-5 mx-auto">
-            <h2>Inscription</h2><br><span style="color: gray"><form>
-  <div class="form-group">
+            <h2>Connexion</h2><br><span style="color: gray"><form>
+  <div class="form-group" name="form_login" value="form_login">
     <label for="InputEmail1"><h4>Email</h4></label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted"><h6>We'll never share your email with anyone else.</h6></small>
   </div>
  <br><div class="form-group">
     <label for="InputPassword1"><h4>Mot de passe</h4></label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+    <input type="password" class="form-control" id="password" placeholder="Enter Password">
   </div>
-  <br><div class="form-group">
-    <label for="InputTel"><h4>Téléphone</h4></label>
-    <input type="tel" class="form-control" id="tel" name="tel" placeholder="Enter phone number">
-  </div>
-  <br><div class="form-group">
-    <label for="InputAddress"><h4>Adresse</h4></label>
-    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Enter postal address">
-  </div>
-    <br><div class="form-group">
-    <label for="InputPostalCode"><h4>Code postal</h4></label>
-    <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Enter postal code">
-  </div>
-  <br><div class="form-group">
-    <label for="InputVille"><h4>Ville</h4></label>
-    <input type="text" class="form-control" id="ville" name="ville" placeholder="Enter city">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="terms">
-    <label class="form-check-label" for="exampleCheck1"><h6>J'accepte les termes et conditions</h6></label>
-  </div>
- <br> <button type="submit" class="btn btn-primary">S'inscrire</button>
+ <br> <button type="submit" class="btn btn-primary">Se connecter</button>
 </form></span></h2>
           </div>
         </div>
