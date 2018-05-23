@@ -19,24 +19,16 @@ session_start();
     {
       
       
-      $SESSION['ID'] = $row['Info_Id'];
-      $SESSION['Email'] = $row['Info_Email'];
-      $SESSION['MDP'] = $row['Info_Mdp'];
-      $SESSION['Telephone'] = $row['Info_Tel'];
-      $SESSION['Adresse'] = $row['Info_Adress'];
-      $SESSION['Ville'] = $row['Info_City'];
-      $SESSION['CodePostal'] = $row['Info_PostalCode'];
-
-      echo ($SESSION['ID']);
-      echo ($SESSION['Email']);
-      echo ($SESSION['MDP']);
-      echo ($SESSION['Telephone']);
-      echo ($SESSION['Adresse']);
-      echo ($SESSION['Ville']);
-      echo ($SESSION['CodePostal']);
+      $_SESSION['ID'] = $row['Info_Id'];
+      $_SESSION['Email'] = $row['Info_Email'];
+      $_SESSION['MDP'] = $row['Info_Mdp'];
+      $_SESSION['Telephone'] = $row['Info_Tel'];
+      $_SESSION['Adresse'] = $row['Info_Adress'];
+      $_SESSION['Ville'] = $row['Info_City'];
+      $_SESSION['CodePostal'] = $row['Info_PostalCode'];
       
-      setcookie('ID', $SESSION['ID'], time() + 3600);
-      /*header('Location: index.php');*/
+      setcookie('ID', $_SESSION['ID'], time() + 3600);
+      header('Location: profil.php');
       $PWresult->bdd = null;
 
     }

@@ -16,7 +16,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Trouvez un titre</title>
+    <title>What Do We Eat?</title>
+
+    <link rel="stylesheet" type="text/css" href="css/profil.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -60,12 +62,23 @@
 	  </ul>
 	</nav>
 
-	<div class="card">
-	  <img src="profilepic.jpg" alt="user" style="width:100%">
-	  <h1><?php echo($SESSION['Email']); ?>;</h1>
-	  <p class="title">CEO & Founder, Example</p>
-	  <p>Harvard University</p>
-	</div>
+    <section class="content-section bg-light" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mx-auto">
+          	<div class="card">
+          	  <img src="img/profilepic.jpg" alt="user" style="width:100%">
+          	  <h1><span></span><?php echo($_SESSION['Email']); ?></h1>
+          	  <p class="title">Téléphone : <?php echo($_SESSION['Telephone']); ?></p>
+              <p class="title">Adresse : <?php echo($_SESSION['Adresse']); ?></p>
+              <p class="title">Ville : <?php echo($_SESSION['Ville']); ?></p>
+              <p class="title">Code Postal : <?php echo($_SESSION['CodePostal']); ?></p>
+              <p><button href="deconnexion.php">Se Déconnecter</button></p>
+          	</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
  <!-- Footer -->
     <footer class="footer text-center">
