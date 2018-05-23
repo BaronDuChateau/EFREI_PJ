@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Trouvez un titre</title>
+    <title>Titre</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +31,10 @@
   </head>
 
   <body id="page-top">
+
+  <?php
+  include ('connectdb.php'); 
+  ?>
 
     <!-- Navigation -->
     <a class="menu-toggle rounded" href="#">
@@ -56,18 +67,19 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-5 mx-auto">
-            <h2>Connexion</h2><br><span style="color: gray"><form>
+            <h2>Connexion</h2><br><span style="color: gray">
+  <form name="myform" method="post">
   <div class="form-group" name="form_login" value="form_login">
     <label for="InputEmail1"><h4>Email</h4></label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" name="pers_data[]" id="email" aria-describedby="emailHelp" value="<?php if (isset($_POST['pers_data'][0])) echo $_POST['pers_data'][0]; ?>" placeholder="Enter email" required>
     <small id="emailHelp" class="form-text text-muted"><h6>We'll never share your email with anyone else.</h6></small>
   </div>
  <br><div class="form-group">
     <label for="InputPassword1"><h4>Mot de passe</h4></label>
-    <input type="password" class="form-control" id="password" placeholder="Enter Password">
+    <input type="password" class="form-control" name="pers_data[]" id="password" placeholder="Enter Password">
   </div>
- <br> <button type="submit" class="btn btn-primary">Se connecter</button>
-</form></span></h2>
+ <br> <button type="submit" name="submit" class="btn btn-primary">Se connecter</button>
+ </form></span>
           </div>
         </div>
       </div>
@@ -115,3 +127,39 @@
   </body>
 
 </html>
+
+<?php
+
+  if(isset($_POST['submit']) && $_POST['pers_data'][0] != null && $_POST['pers_data'][1] != null)
+  {
+    //getting posted data 
+    $data = $_POST['pers_data'];
+    $email = $data[0];
+    $password = $data[1];
+
+    $PWresult = $bdd->prepare("SELECT * FROM info WHERE Info_Email = '{$email}'");
+    $PWresult -> execute();
+    $row = $PWresult->fetch(PDO::FETCH_ASSOC);
+
+    if(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $email) == 1 && trim($password) == trim($row['Info_Mdp']))
+    {
+      
+      
+      $SESSION['ID'] = $row['Info_Id'];
+      $SESSION['Email'] = $row['Info_Email'];
+      $SESSION['MDP'] = $row['Info_Mdp'];
+      $SESSION['Prenom'] = $row['Info_Name'];
+      $SESSION['Nom'] = $row['Info_Surname'];
+      $SESSION['Telephone'] = $row['Info_Tel'];
+      $SESSION['Adresse'] = $row['Info_Adress'];
+      $SESSION['Ville'] = $row['Info_City'];
+      $SESSION['CodePostal'] = $row['Info_PostalCode'];
+      
+      setcookie('ID', $SESSION['ID'], time() + 3600);
+      header('Location: index.php');
+      $PWresult->bdd = null;
+
+    }
+  }
+
+?>
