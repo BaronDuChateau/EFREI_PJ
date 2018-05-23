@@ -6,7 +6,7 @@
 
       require 'connectdb.php';
 
-      if (isset(($_POST["email"])) && isset(($_POST["mdp"])) && isset(($_POST["tel"])) && isset(($_POST["adresse"])) && isset(($_POST["codepostal"])) && isset(($_POST["ville"])))
+      if (!empty($_POST['email']) && !empty(($_POST['mdp'])) && !empty(($_POST['tel'])) && !empty(($_POST['adresse'])) && !empty(($_POST['codepostal'])) && !empty(($_POST['ville'])))
       {
         $email = $_POST["email"];
         $mdp = $_POST["mdp"];
@@ -14,10 +14,11 @@
         $adresse = $_POST["adresse"];
         $codepostal = $_POST["codepostal"];
         $ville = $_POST["ville"];
-        echo("Inscription avec succès");
-        $stmt = $mysqli->prepare("INSERT INTO Info VALUES ('','$email','$mdp','$tel','$adresse','$ville','$codepostal')");
-        $sql->execute();
-        //$bdd->query($sql);
+        if ($bdd->query("INSERT INTO info VALUES (NULL,'$email','$mdp','$tel','$adresse','$ville','$codepostal')") === TRUE) {
+            echo("Inscription avec succès");
+        }
+        
+          
       }
       else {
         echo("Tous les champs doivent être remplis");
@@ -161,4 +162,3 @@
   </body>
 
 </html>
-

@@ -2,6 +2,40 @@
 
 session_start();
 
+  include ('connectdb.php'); 
+
+  if(isset($_POST['submit']) && $_POST['pers_data'][0] != null && $_POST['pers_data'][1] != null)
+  {
+    //getting posted data 
+    $data = $_POST['pers_data'];
+    $email = $data[0];
+    $password = $data[1];
+
+    $PWresult = $bdd->prepare("SELECT * FROM info WHERE Info_Email = '{$email}'");
+    $PWresult -> execute();
+    $row = $PWresult->fetch(PDO::FETCH_ASSOC);
+
+    if(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $email) == 1 && trim($password) == trim($row['Info_Mdp']))
+    {
+      
+      
+      $SESSION['ID'] = $row['Info_Id'];
+      $SESSION['Email'] = $row['Info_Email'];
+      $SESSION['MDP'] = $row['Info_Mdp'];
+      $SESSION['Prenom'] = $row['Info_Name'];
+      $SESSION['Nom'] = $row['Info_Surname'];
+      $SESSION['Telephone'] = $row['Info_Tel'];
+      $SESSION['Adresse'] = $row['Info_Adress'];
+      $SESSION['Ville'] = $row['Info_City'];
+      $SESSION['CodePostal'] = $row['Info_PostalCode'];
+      
+      setcookie('ID', $SESSION['ID'], time() + 3600);
+      header('Location: index.php');
+      $PWresult->bdd = null;
+
+    }
+  }
+
 ?>
 
 
@@ -127,39 +161,3 @@ session_start();
   </body>
 
 </html>
-
-<?php
-
-  if(isset($_POST['submit']) && $_POST['pers_data'][0] != null && $_POST['pers_data'][1] != null)
-  {
-    //getting posted data 
-    $data = $_POST['pers_data'];
-    $email = $data[0];
-    $password = $data[1];
-
-    $PWresult = $bdd->prepare("SELECT * FROM info WHERE Info_Email = '{$email}'");
-    $PWresult -> execute();
-    $row = $PWresult->fetch(PDO::FETCH_ASSOC);
-
-    if(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $email) == 1 && trim($password) == trim($row['Info_Mdp']))
-    {
-      
-      
-      $SESSION['ID'] = $row['Info_Id'];
-      $SESSION['Email'] = $row['Info_Email'];
-      $SESSION['MDP'] = $row['Info_Mdp'];
-      $SESSION['Prenom'] = $row['Info_Name'];
-      $SESSION['Nom'] = $row['Info_Surname'];
-      $SESSION['Telephone'] = $row['Info_Tel'];
-      $SESSION['Adresse'] = $row['Info_Adress'];
-      $SESSION['Ville'] = $row['Info_City'];
-      $SESSION['CodePostal'] = $row['Info_PostalCode'];
-      
-      setcookie('ID', $SESSION['ID'], time() + 3600);
-      header('Location: index.php');
-      $PWresult->bdd = null;
-
-    }
-  }
-
-?>
