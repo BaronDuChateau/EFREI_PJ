@@ -58,7 +58,7 @@
         <h3 class="mb-5">
           <em>Notre IA trouvera pour vous !</em>
         </h3>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="chat.php">Commencer</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="questionnaire.php">Commencer</a>
       </div>
       <div class="overlay"></div>
     </header>
@@ -245,6 +245,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/stylish-portfolio.min.js"></script>
+
+    <script src="https://widget.flowxo.com/embed.js" data-fxo-widget="eyJ0aGVtZSI6IiMxZDgwOWYiLCJ3ZWIiOnsiYm90SWQiOiI1YWUxOTBjNWE2MmNkNjAwN2ViZjc2NmQiLCJ0aGVtZSI6IiMxZDgwOWYifSwid2VsY29tZVRleHQiOiJCZXNvaW4gZCdhaWRlID8ifQ==" async defer></script>
 
   </body>
 
