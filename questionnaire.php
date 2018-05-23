@@ -1,15 +1,38 @@
- <?php
-
-      session_start();
-      require 'connectdb.php';
-
+<?php
+    session_start();
+    if (isset($_POST['q1'])) {
+      $var1 = $_POST['q1'];
+      $var2 = $_POST['q2'];
+      $var3 = $_POST['q3'];
+      $var4 = $_POST['q4'];
+      $var5 = $_POST['q5'];
+      $var6 = $_POST['q6'];
+      $var7 = $_POST['q7'];
+      $var8 = $_POST['q8'];
+      $var9 = $_POST['q9'];
+      $var10 = $_POST['q10'];
+      //$cmd="C:\\wamp64\\www\\EFREI_PJ-master\\Final.py ".escapeshellarg($var1)." ".escapeshellarg($var2)." ".escapeshellarg($var3)." ".escapeshellarg($var4)." ".escapeshellarg($var5)." ".escapeshellarg($var6)." ".escapeshellarg($var7)." ".escapeshellarg($var8)." ".escapeshellarg($var9)." ".escapeshellarg($var10);
+      $cmd = escapeshellcmd("dir");
+      sleep(3);
+      echo (shell_exec($cmd));
+      $cmd = escapeshellcmd("runas /user:hugo@DESKTOP-EKD2RLC C:\wamp64\www\EFREI_PJ-master\Final.py ".$var1." ".$var2." ".$var3." ".$var4." ".$var5." ".$var6." ".$var7." ".$var8." ".$var9." ".$var10);
+      $output = shell_exec($cmd);
+      echo $output;
+      $output = shell_exec("az1919az1919");
+      sleep(3);
+      echo $output;
+      $homepage = file_get_contents('prediction.txt');
+    }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 
+ <?php
 
+      require 'connectdb.php';
+
+?>
 
   <head>
 
@@ -37,53 +60,38 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <?php
-
-      if (isset($_SESSION['ID']) != null) {
-    ?>
-
     <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
     </a>
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Menu</a>
+          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="index.php">Accueil</a>
+          <a class="js-scroll-trigger" href="#page-top">Home</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="questionnaire.php">Questionnaire</a>
+          <a class="js-scroll-trigger" href="#about">About</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="profil.php">Profil</a>
+          <a class="js-scroll-trigger" href="#services">Services</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
+          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="contact.php">Contact</a>
-        </li>
-        <br><br>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
+          <a class="js-scroll-trigger" href="#contact">Contact</a>
         </li>
       </ul>
     </nav>
-
-    <?php
-
-      }
-      else header('Location : connexion.php');
-
-    ?>
-
     <section class="content-section bg-light" id="about">
-      <div class="container">
+      <div class="container text-center">
         <div class="row">
-          <div class="col-lg-6 mx-auto">
-            <h2 class="text-center">Répondez à notre questionnaire, et découvrez notre menu!</h2><br><span style="color: gray"><form method="POST" action= "questionnaire.php">
+          <div class="col-lg-5 mx-auto">
+
+            <h2><?php if (isset($homepage)) { echo ("Votre menu est le suivant : " . $homepage); } ?>
+              Répondez à notre questionnaire, et découvrez notre menu!</h2><br><span style="color: gray"><form id="quest" method="POST" action= "questionnaire.php">
   <br><div class="form-group">
     <label><h4>1/ Vous êtes :</h4></label><br>
     <div class="form-check-inline">
@@ -260,7 +268,7 @@
             </a>
           </li>
         </ul>
-        <p class="text-muted small mb-0">Copyright &copy; Your Website 2017</p>
+        <p class="text-muted small mb-0">Copyright &copy; TeamTransverse 2018</p>
       </div>
     </footer>
 
