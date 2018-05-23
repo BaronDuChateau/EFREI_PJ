@@ -5,22 +5,20 @@
  <?php
 
       require 'connectdb.php';
+      session_start();
 
-      if (isset(($_POST["email"])) && isset(($_POST["mdp"])) && isset(($_POST["tel"])) && isset(($_POST["adresse"])) && isset(($_POST["codepostal"])) && isset(($_POST["ville"])))
+      if(isset($_SESSION['ID']))
       {
-        $email = $_POST["email"];
-        $mdp = $_POST["mdp"];
-        $tel = $_POST["tel"];
-        $adresse = $_POST["adresse"];
-        $codepostal = $_POST["codepostal"];
-        $ville = $_POST["ville"];
-        echo("Inscription avec succès");
-        $stmt = $mysqli->prepare("INSERT INTO Info VALUES ('','$email','$mdp','$tel','$adresse','$ville','$codepostal')");
-        $sql->execute();
-        //$bdd->query($sql);
-      }
-      else {
-        echo("Tous les champs doivent être remplis");
+        $user_id = $_SESSION['ID'];
+        $sql = "SELECT Info_Id, Info_Email, Info_Mdp, Info_Tel, Info_Adress, Info_City, Info_PostalCode FROM Info WHERE Info_Id = $user_id";
+        //$sql = "SELECT Info VALUES ('','$email','$mdp','$tel','$adresse','$ville','$codepostal') WHERE Info_Id = membre_id";
+        $bdd->query($sql);
+        $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
+        $id = $row['Info_Id'];
+        $email = $row['Info_Email'];
+        $adresse = $row['Info_Adress'];
+        $codepostal = $row['Info_PostalCode'];
+        $ville = $row['Info_City'];
       }
 
 
@@ -85,34 +83,30 @@
             <h2>Inscription</h2><br><span style="color: gray"><form method="POST" action= "inscription.php">
   <div class="form-group">
     <label for="InputEmail1"><h4>Email</h4></label>
-    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required value ="<?php echo  $email ;?>">
     <small id="emailHelp" class="form-text text-muted"><h6>We'll never share your email with anyone else.</h6></small>
-  </div>
- <br><div class="form-group">
-    <label for="InputPassword1"><h4>Mot de passe</h4></label>
-    <input type="password" class="form-control" name="mdp" placeholder="Enter Password">
   </div>
   <br><div class="form-group">
     <label for="InputTel"><h4>Téléphone</h4></label>
-    <input type="tel" class="form-control" name="tel" placeholder="Enter phone number">
+    <input type="tel" class="form-control" name="tel" required value ="<?php echo  $tel ;?>">
   </div>
   <br><div class="form-group">
     <label for="InputAddress"><h4>Adresse</h4></label>
-    <input type="text" class="form-control" name="adresse" placeholder="Enter postal address">
-  </div>
-    <br><div class="form-group">
-    <label for="InputPostalCode"><h4>Code postal</h4></label>
-    <input type="text" class="form-control" name="codepostal" placeholder="Enter postal code">
+    <input type="text" class="form-control" name="adresse" required value ="<?php echo  $adresse ;?>">
   </div>
   <br><div class="form-group">
     <label for="InputVille"><h4>Ville</h4></label>
-    <input type="text" class="form-control" name="ville" placeholder="Enter city">
+    <input type="text" class="form-control" name="ville" required value ="<?php echo  $ville ;?>">
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="terms">
-    <label class="form-check-label" for="exampleCheck1"><h6>J'accepte les termes et conditions</h6></label>
+    <br><div class="form-group">
+    <label for="InputPostalCode"><h4>Code postal</h4></label>
+    <input type="text" class="form-control" name="codepostal" required value ="<?php echo  $codepostal ;?>">
   </div>
- <br> <button type="submit" class="btn btn-primary">S'inscrire</button>
+   <br><div class="form-group">
+    <label for="InputPassword1"><h4>Mot de passe</h4></label>
+    <input type="password" class="form-control" name="mdp" placeholder="Entrez votre mdp pour actualiser">
+  </div>
+ <br> <button type="submit" class="btn btn-primary">Actualiser</button>
 </form></span></h2>
           </div>
         </div>
