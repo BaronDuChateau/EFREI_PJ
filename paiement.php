@@ -35,22 +35,22 @@
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Menu</a>
+          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="index.php">Accueil</a>
+          <a class="js-scroll-trigger" href="#page-top">Home</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="inscription.php">Inscription</a>
+          <a class="js-scroll-trigger" href="#about">About</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="connexion.php">Connexion</a>
+          <a class="js-scroll-trigger" href="#services">Services</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
+          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="contact.php">Contact</a>
+          <a class="js-scroll-trigger" href="#contact">Contact</a>
         </li>
       </ul>
     </nav>

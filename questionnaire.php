@@ -4,6 +4,7 @@
 
  <?php
 
+      session_start();
       require 'connectdb.php';
 
 ?>
@@ -61,10 +62,10 @@
     </nav>
 
     <section class="content-section bg-light" id="about">
-      <div class="container text-center">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-5 mx-auto">
-            <h2>Répondez à notre questionnaire, et découvrez notre menu!</h2><br><span style="color: gray"><form method="POST" action= "questionnaire.php">
+          <div class="col-lg-6 mx-auto">
+            <h2 class="text-center">Répondez à notre questionnaire, et découvrez notre menu!</h2><br><span style="color: gray"><form method="POST" action= "questionnaire.php">
   <br><div class="form-group">
     <label><h4>1/ Vous êtes :</h4></label><br>
     <div class="form-check-inline">
