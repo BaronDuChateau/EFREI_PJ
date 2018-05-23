@@ -20,9 +20,6 @@
         
           
       }
-      else {
-        echo("Tous les champs doivent être remplis");
-      }
 
 
 ?>
@@ -113,7 +110,7 @@
     <input type="checkbox" class="form-check-input" id="terms">
     <label class="form-check-label" for="exampleCheck1"><h6>J'accepte les termes et conditions</h6></label>
   </div>
- <br> <button type="submit" class="btn btn-primary">S'inscrire</button>
+ <br> <button type="submit" class="btn btn-primary">S'inscrire</button><br> <a class="login-link" href="Connexion.php"><u>Déjà inscrit? Profitez de nos services!</u></a>
 </form></span></h2>
           </div>
         </div>
