@@ -15,8 +15,9 @@
         $codepostal = $_POST["codepostal"];
         $ville = $_POST["ville"];
         echo("Inscription avec succès");
-        $sql = "INSERT INTO Info VALUES ('','$email','$mdp','$tel','$adresse','$ville','$codepostal')";
-        $bdd->query($sql);
+        $stmt = $mysqli->prepare("INSERT INTO Info VALUES ('','$email','$mdp','$tel','$adresse','$ville','$codepostal')");
+        $sql->execute();
+        //$bdd->query($sql);
       }
       else {
         echo("Tous les champs doivent être remplis");
