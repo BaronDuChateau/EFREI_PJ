@@ -68,6 +68,10 @@
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
         </li>
+        <br><br>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
+        </li>
       </ul>
     </nav>
 

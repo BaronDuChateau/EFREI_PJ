@@ -67,6 +67,12 @@
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
+<<<<<<< HEAD
+=======
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="contact.php">Contact</a>
+        </li>
+>>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
         <br><br>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>

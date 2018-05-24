@@ -54,6 +54,46 @@
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="questionnaire.php">Questionnaire</a>
+<<<<<<< HEAD
+=======
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="profil.php">Profil</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="contact.php">Contact</a>
+        </li>
+        <br><br>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
+        </li>
+      </ul>
+    </nav>
+
+    <?php
+
+      }
+      else {
+
+    ?>
+
+        <a class="menu-toggle rounded" href="#">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#page-top">Menu</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="index.php">Accueil</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="inscription.php">Inscription</a>
+>>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="profil.php">Profil</a>
@@ -71,6 +111,7 @@
     <?php
 
       }
+<<<<<<< HEAD
       else {
 
     ?>
@@ -101,6 +142,8 @@
     <?php
 
       }
+=======
+>>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
 
     ?>
 

@@ -1,3 +1,5 @@
+﻿#!/usr/bin/env python
+
 from __future__ import absolute_import, division, print_function
 import sys
 import os
@@ -100,7 +102,7 @@ axes[1].set_ylabel("Accuracy", fontsize=14)
 axes[1].set_xlabel("Epoch", fontsize=14)
 axes[1].plot(train_accuracy_results)
 
-plt.show()
+#plt.show()
 
 class_ids = ["yolo","Menu lourd", "Menu léger", "Menu normal", "Menu exotique"]
 a0 = float(sys.argv[1])
