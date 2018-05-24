@@ -1,3 +1,13 @@
+<?php
+  
+  session_start();
+
+  if (isset($_SESSION['ID']) != null) {
+    setcookie('ID', $_SESSION['ID'], time() + 3600);
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +39,12 @@
 
   <body id="page-top">
     <!-- Navigation -->
-        <a class="menu-toggle rounded" href="#">
+    <?php
+
+      if (isset($_SESSION['ID']) != null) {
+    ?>
+
+    <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
     </a>
     <nav id="sidebar-wrapper">
@@ -41,19 +56,27 @@
           <a class="js-scroll-trigger" href="index.php">Accueil</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="inscription.php">Inscription</a>
+          <a class="js-scroll-trigger" href="questionnaire.php">Questionnaire</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="connexion.php">Connexion</a>
+          <a class="js-scroll-trigger" href="profil.php">Profil</a>
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
+        <br><br>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="contact.php">Contact</a>
+          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
         </li>
       </ul>
     </nav>
+
+    <?php
+
+      }
+      else header('Location : index.php');
+
+    ?>
 
     <!-- Portfolio -->
 

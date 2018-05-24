@@ -1,3 +1,10 @@
+<?php
+
+  session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,31 +32,74 @@
 
   <body id="page-top">
     <!-- Navigation -->
+    <?php
+
+      if (isset($_SESSION['ID']) != null) {
+    ?>
+
     <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
     </a>
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+          <a class="js-scroll-trigger" href="#page-top">Menu</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Home</a>
+          <a class="js-scroll-trigger" href="index.php">Accueil</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">About</a>
+          <a class="js-scroll-trigger" href="questionnaire.php">Questionnaire</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#services">Services</a>
+          <a class="js-scroll-trigger" href="profil.php">Profil</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
+        <br><br>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Contact</a>
+          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
         </li>
       </ul>
     </nav>
+
+    <?php
+
+      }
+      else {
+
+    ?>
+
+        <a class="menu-toggle rounded" href="#">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#page-top">Menu</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="index.php">Accueil</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="inscription.php">Inscription</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="connexion.php">Connexion</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
+        </li>
+      </ul>
+    </nav>
+
+    <?php
+
+      }
+
+    ?>
+
 
     <!-- Header 
     <header class="masthead d-flex">
@@ -142,8 +192,8 @@
       <!-- Callout -->
     <section class="callout">
       <div class="container text-center">
-        <h2 class="mx-auto mb-5">En savoir plus sur nous ?</h2>
-        <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Cliquez ici !</a>
+        <h2 class="mx-auto mb-5">Venez découvrir nos services! Connectez-vous!</h2>
+        <a class="btn btn-primary btn-xl" href="connexion.php">Cliquez ici !</a>
       </div>
     </section>
 

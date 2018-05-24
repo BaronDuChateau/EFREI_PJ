@@ -15,13 +15,11 @@
         $codepostal = $_POST["codepostal"];
         $ville = $_POST["ville"];
         if ($bdd->query("INSERT INTO info VALUES (NULL,'$email','$mdp','$tel','$adresse','$ville','$codepostal')") === TRUE) {
-            echo("Inscription avec succès");
+            header('Location : connection.php');
+            echo("Inscription avec succès");  
         }
         
           
-      }
-      else {
-        echo("Tous les champs doivent être remplis");
       }
 
 
@@ -73,9 +71,6 @@
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="contact.php">Contact</a>
-        </li>
       </ul>
     </nav>
 
@@ -113,7 +108,7 @@
     <input type="checkbox" class="form-check-input" id="terms">
     <label class="form-check-label" for="exampleCheck1"><h6>J'accepte les termes et conditions</h6></label>
   </div>
- <br> <button type="submit" class="btn btn-primary">S'inscrire</button>
+ <br> <button type="submit" class="btn btn-primary">S'inscrire</button><br> <a class="login-link" href="Connexion.php"><u>Déjà inscrit? Profitez de nos services!</u></a>
 </form></span></h2>
           </div>
         </div>

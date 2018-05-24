@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
  <?php
 
       session_start();
       require 'connectdb.php';
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
 
   <head>
 
@@ -35,31 +37,44 @@
   <body id="page-top">
 
     <!-- Navigation -->
+    <?php
+
+      if (isset($_SESSION['ID']) != null) {
+    ?>
+
     <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
     </a>
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+          <a class="js-scroll-trigger" href="#page-top">Menu</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Home</a>
+          <a class="js-scroll-trigger" href="index.php">Accueil</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">About</a>
+          <a class="js-scroll-trigger" href="questionnaire.php">Questionnaire</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#services">Services</a>
+          <a class="js-scroll-trigger" href="profil.php">Profil</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
+        <br><br>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Contact</a>
+          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
         </li>
       </ul>
     </nav>
+
+    <?php
+
+      }
+      else header('Location : connexion.php');
+
+    ?>
 
     <section class="content-section bg-light" id="about">
       <div class="container">

@@ -1,3 +1,13 @@
+<?php
+
+  session_start();
+
+  if (isset($_SESSION['ID']) != null) {
+    setcookie('ID', $_SESSION['ID'], time() + 3600);
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +35,47 @@
 
   <body id="page-top">
     <!-- Navigation -->
+
+    <?php
+
+      if (isset($_SESSION['ID']) != null) {
+    ?>
+
     <a class="menu-toggle rounded" href="#">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#page-top">Menu</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="index.php">Accueil</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="questionnaire.php">Questionnaire</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="profil.php">Profil</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
+        </li>
+        <br><br>
+        <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
+        </li>
+      </ul>
+    </nav>
+
+    <?php
+
+      }
+      else {
+
+    ?>
+
+        <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
     </a>
     <nav id="sidebar-wrapper">
@@ -45,11 +95,14 @@
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="contact.php">Contact</a>
-        </li>
       </ul>
     </nav>
+
+    <?php
+
+      }
+
+    ?>
 
     <!-- Header -->
     <header class="masthead d-flex">
@@ -58,7 +111,7 @@
         <h3 class="mb-5">
           <em>Notre IA trouvera pour vous !</em>
         </h3>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="questionnaire.php">Commencer</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="inscription.php">Commencer</a>
       </div>
       <div class="overlay"></div>
     </header>

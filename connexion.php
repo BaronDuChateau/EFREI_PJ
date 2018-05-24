@@ -2,7 +2,7 @@
 
 session_start();
 
-  include ('connectdb.php'); 
+  include ('connectdb.php');
 
   if(isset($_POST['submit']) && $_POST['pers_data'][0] != null && $_POST['pers_data'][1] != null)
   {
@@ -89,9 +89,6 @@ session_start();
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="contact.php">Contact</a>
-        </li>
       </ul>
     </nav>
 
@@ -110,7 +107,7 @@ session_start();
     <label for="InputPassword1"><h4>Mot de passe</h4></label>
     <input type="password" class="form-control" name="pers_data[]" id="password" placeholder="Enter Password">
   </div>
- <br> <button type="submit" name="submit" class="btn btn-primary">Se connecter</button>
+ <br> <button type="submit" name="submit" class="btn btn-primary">Se connecter</button><br> <a class="login-link" href="inscription.php"><u>Pas de compte? Inscrivez-vous!</u></a>
  </form></span>
           </div>
         </div>
