@@ -54,17 +54,12 @@
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="questionnaire.php">Questionnaire</a>
-<<<<<<< HEAD
-=======
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="profil.php">Profil</a>
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="contact.php">Contact</a>
         </li>
         <br><br>
         <li class="sidebar-nav-item">
@@ -90,60 +85,23 @@
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="index.php">Accueil</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="inscription.php">Inscription</a>
->>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="profil.php">Profil</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
-        </li>
-        <br><br>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
-        </li>
-      </ul>
-    </nav>
-
-    <?php
-
-      }
-<<<<<<< HEAD
-      else {
-
-    ?>
-
-        <a class="menu-toggle rounded" href="#">
-      <i class="fa fa-bars"></i>
-    </a>
-    <nav id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Menu</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="index.php">Accueil</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="inscription.php">Inscription</a>
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="connexion.php">Connexion</a>
         </li>
         <li class="sidebar-nav-item">
+          <a class="js-scroll-trigger" href="inscription.php">Inscription</a>
+        </li>
+        <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
+        <br><br>
       </ul>
     </nav>
 
     <?php
 
       }
-=======
->>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
 
     ?>
 
@@ -280,8 +238,8 @@
       <!-- Callout -->
     <section class="callout">
       <div class="container text-center">
-        <h2 class="mx-auto mb-5">En savoir plus sur nous ?</h2>
-        <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Cliquez ici !</a>
+        <h2 class="mx-auto mb-5">Tentez l'expérience! ?</h2>
+        <a class="btn btn-primary btn-xl" href="connexion.php">Cliquez ici !</a>
       </div>
     </section>
 

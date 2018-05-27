@@ -15,8 +15,7 @@
         $codepostal = $_POST["codepostal"];
         $ville = $_POST["ville"];
         if ($bdd->query("INSERT INTO info VALUES (NULL,'$email','$mdp','$tel','$adresse','$ville','$codepostal')") === TRUE) {
-            header('Location : connection.php');
-            echo("Inscription avec succès");  
+            header('Location : connexion.php');
         }
         
           

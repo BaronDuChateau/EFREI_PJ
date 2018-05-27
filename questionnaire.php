@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
     session_start();
     if (isset($_POST['q1'])) {
@@ -14,7 +12,7 @@
       $var9 = $_POST['q9'];
       $var10 = $_POST['q10'];
       //$cmd="C:\\wamp64\\www\\EFREI_PJ-master\\Final.py ".escapeshellarg($var1)." ".escapeshellarg($var2)." ".escapeshellarg($var3)." ".escapeshellarg($var4)." ".escapeshellarg($var5)." ".escapeshellarg($var6)." ".escapeshellarg($var7)." ".escapeshellarg($var8)." ".escapeshellarg($var9)." ".escapeshellarg($var10);
-      $cmd = escapeshellcmd("dir");
+      /**$cmd = escapeshellcmd("dir");
       sleep(3);
       echo (shell_exec($cmd));
       $cmd = escapeshellcmd("runas /user:hugo@DESKTOP-EKD2RLC C:\wamp64\www\EFREI_PJ-master\Final.py ".$var1." ".$var2." ".$var3." ".$var4." ".$var5." ".$var6." ".$var7." ".$var8." ".$var9." ".$var10);
@@ -22,7 +20,10 @@
       echo $output;
       $output = shell_exec("az1919az1919");
       sleep(3);
-      echo $output;
+      echo $output;*/
+      $cmd="C:\\wamp64\\www\\EFREI_PJ-master\\Final.py ".escapeshellarg($var1)." ".escapeshellarg($var2)." ".escapeshellarg($var3)." ".escapeshellarg($var4)." ".escapeshellarg($var5)." ".escapeshellarg($var6)." ".escapeshellarg($var7)." ".escapeshellarg($var8)." ".escapeshellarg($var9)." ".escapeshellarg($var10);
+      $output = shell_exec($cmd);
+      sleep(10);
       $homepage = file_get_contents('prediction.txt');
     }
 ?>
@@ -30,18 +31,11 @@
 <html lang="en">
 
 
->>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
  <?php
 
       require 'connectdb.php';
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-
-
 
   <head>
 
@@ -69,11 +63,6 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <?php
-
-      if (isset($_SESSION['ID']) != null) {
-    ?>
-
     <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
     </a>
@@ -94,29 +83,19 @@
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="chat.php">Chat IA</a>
         </li>
+        
         <br><br>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
         </li>
       </ul>
     </nav>
-<<<<<<< HEAD
-
-    <?php
-
-      }
-      else header('Location : connexion.php');
-
-    ?>
-
-=======
->>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
     <section class="content-section bg-light" id="about">
-      <div class="container text-center">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-5 mx-auto">
+          <div class="col-lg-6 mx-auto">
 
-            <h2><?php if (isset($homepage)) { echo ("Votre menu est le suivant : " . $homepage); } ?>
+            <h2><?php if (isset($homepage)) { echo ("<h2>Votre menu est le suivant : " . $homepage . "<br><br><br><br>"); } ?>
               Répondez à notre questionnaire, et découvrez notre menu!</h2><br><span style="color: gray"><form id="quest" method="POST" action= "questionnaire.php">
   <br><div class="form-group">
     <label><h4>1/ Vous êtes :</h4></label><br>

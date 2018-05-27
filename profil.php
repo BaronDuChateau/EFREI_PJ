@@ -72,7 +72,7 @@
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="contact.php">Contact</a>
         </li>
->>>>>>> e5f33083967c957975c3f8cf4c980b45dd99066c
+>>>>>>> 6afe9e2fdebb3b61eb9171402e332257c158a04b
         <br><br>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="deconnexion.php">Deconnexion</a>
